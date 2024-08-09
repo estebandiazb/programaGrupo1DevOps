@@ -1,0 +1,25 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+    <soapenv:Header>
+        <mci:headerResponse xmlns:mci="http://osb.bancochile.cl/ent/bch/neg/mci/cabeceraServicios/v/4">
+            <mci:idTransaccionNegocio>?</mci:idTransaccionNegocio>
+            <mci:fechaInicioTrx>2019-02-07T15:44:37.44-03:00</mci:fechaInicioTrx>
+            <mci:fechaFinTrx>2019-02-07T15:44:37.551-03:00</mci:fechaFinTrx>
+            <mci:internalCode>?</mci:internalCode>
+        </mci:headerResponse>
+    </soapenv:Header>
+    <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+        <ns2:consultarRatingRs xmlns:ns2="http://osb.bancochile.cl/bch/neg/limites/consultarRatingEmpresa/consultarRatingRs/mpi">
+            <ns2:codigoRetorno>0</ns2:codigoRetorno>
+            <ns2:glosaRetorno>OK</ns2:glosaRetorno>
+            <ns2:listaRatingGrupal>
+                <ns2:detalleRatingGrupal>
+                    <ns2:notaRating>7</ns2:notaRating>
+                    <ns2:modelo>Multisegmento</ns2:modelo>
+                    <ns2:fechaEstado>2012-07-12</ns2:fechaEstado>
+                    <ns2:fechaModificacion>2012-07-12</ns2:fechaModificacion>
+                    <ns2:responsableRating>MPENA</ns2:responsableRating>
+                </ns2:detalleRatingGrupal>
+            </ns2:listaRatingGrupal>
+        </ns2:consultarRatingRs>
+    </Body>
+</soapenv:Envelope>

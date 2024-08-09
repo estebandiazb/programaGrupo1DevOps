@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+    <context:component-scan
+            base-package="cl.bancochile.plataformabase.security,
+                          cl.bancochile.plataformabase.error.advice,
+                          cl.bancochile.plataformabase.error.resttemplate,
+                          cl.bancochile.plataformacomercial.controllimitestaller.advice,
+                          cl.bancochile.plataformacomercial.controllimitestaller.controller,
+                          cl.bancochile.plataformacomercial.controllimitestaller.repository,
+                          cl.bancochile.plataformacomercial.controllimitestaller.service,
+                          cl.bancochile.traductor.services"/>
+    <context:annotation-config/>
+
+    <!-- Spring Context de api para el manejo de log journal -->
+    <import resource="classpath*:spring/journalcn-api-context.xml"/>
+
+    <!--Importar properties-context-->
+    <import resource="classpath:spring/properties-context.xml"/>
+
+    <!-- referencia a configuración de propiedades utilizados en jwt-security -->
+    <import resource="classpath:spring/jwt-security-context.xml"/>
+
+    <!--Catalogo de errores-->
+    <import resource="classpath:spring/catalogo-context.xml"/>
+
+    <!--Configuraciones para Sesion-->
+    <import resource="classpath*:spring/cdnsession-api-context.xml"/>
+    <import resource="classpath*:spring/cdnsession-model-context.xml"/>
+
+
+    <import resource="classpath*:spring/rest-error-handler-context.xml"/>
+
+    <!--lib DAO-->
+    <import resource="classpath*:spring/simple-sp-dao.xml"/>
+
+    <import resource="classpath*:spring/db-context.xml"/>
+
+    <!-- Lib taller de limites -->
+    <import resource="classpath*:spring/control-limites-lib-taller-context.xml"/>
+
+    <!-- Lib Api SGT -->
+    <import resource="classpath*:spring/control-limites-lib-api-sgt-context.xml"/>
+
+    <!-- Lib Common -->
+    <import resource="classpath*:spring/control-limites-lib-common-context.xml"/>
+
+    <!--Configuraciones para Log de aplicacion-->
+    <import resource="classpath:spring/log-app-cdl-aop-context.xml" />
+    <bean id="idApp" class="java.lang.String">
+        <constructor-arg type="java.lang.String" value="cdlmant"/>
+    </bean>
+</beans>
+

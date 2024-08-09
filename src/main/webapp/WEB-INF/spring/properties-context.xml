@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Root Context: define recursos compartidos visibles a todos los otros componentes web -->
+    <bean id="globalPropertyPlaceHolder" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="ignoreResourceNotFound" value="false"/>
+        <property name="ignoreUnresolvablePlaceholders" value="false"/>
+        <property name="systemPropertiesMode" value="2"/>
+        <property name="locations">
+            <list>
+                <value>classpath:servicios/properties/applications.properties</value>
+                <value>classpath:servicios/properties/osb11.properties</value>
+                <value>classpath:servicios/properties/osb12.properties</value>
+                <value>classpath:system.properties</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="propiedadesCDL"
+          class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="locations">
+            <list>
+                <value>classpath*:limites.properties</value>
+            </list>
+        </property>
+    </bean>
+
+
+</beans>

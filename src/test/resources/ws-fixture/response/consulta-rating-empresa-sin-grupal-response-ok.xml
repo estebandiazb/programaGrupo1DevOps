@@ -1,0 +1,23 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+    <soapenv:Header>
+        <mci:headerResponse xmlns:mci="http://osb.bancochile.cl/ent/bch/neg/mci/cabeceraServicios/v/4">
+            <mci:idTransaccionNegocio>pruebaTrazaOK3</mci:idTransaccionNegocio>
+            <mci:fechaInicioTrx>2018-12-17T12:07:01.525-03:00</mci:fechaInicioTrx>
+            <mci:fechaFinTrx>2018-12-17T12:07:01.557-03:00</mci:fechaFinTrx>
+            <mci:internalCode>9b31a328-961e-490f-8edc-cc0dbb0b4ab7</mci:internalCode>
+        </mci:headerResponse>
+    </soapenv:Header>
+    <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+        <ns2:consultarRatingRs xmlns:ns2="http://osb.bancochile.cl/bch/neg/limites/consultarRatingEmpresa/consultarRatingRs/mpi">
+            <ns2:codigoRetorno>0</ns2:codigoRetorno>
+            <ns2:glosaRetorno>OK</ns2:glosaRetorno>
+            <ns2:detalleRatingIndividual>
+                <ns2:notaRating>8</ns2:notaRating>
+                <ns2:modelo>Modelo Solo Comportamiento</ns2:modelo>
+                <ns2:fechaEstado>2015-10-20</ns2:fechaEstado>
+                <ns2:fechaModificacion>2015-10-20</ns2:fechaModificacion>
+                <ns2:responsableRating>NCERDA</ns2:responsableRating>
+            </ns2:detalleRatingIndividual>
+        </ns2:consultarRatingRs>
+    </Body>
+</soapenv:Envelope>

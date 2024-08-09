@@ -1,0 +1,34 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+    <soapenv:Body>
+        <ns0:Fault xsi:schemaLocation="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns0="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <faultcode>Server</faultcode>
+            <faultstring>Técnico : PipelinePPL.001463_1.0.ConsultarRating : OSB-382505 : OSB Validate action failed validation: string value '96929960-' does not match pattern for Rut in namespace http://osb.bancochile.cl/ent/bch/infra/mci/comun/v/3</faultstring>
+            <detail>
+                <det:details xmlns:det="http://osb.bancochile.cl/ent/bch/infra/mci/errorDetails/v/6">
+                    <det:fault>
+                        <det:errorCode>Técnico</det:errorCode>
+                        <det:reason>PipelinePPL.001463_1.0.ConsultarRating : OSB-382505 : OSB Validate action failed validation: string value '96929960-' does not match pattern for Rut in namespace http://osb.bancochile.cl/ent/bch/infra/mci/comun/v/3</det:reason>
+                        <det:location>
+                            <det:node>PipelinePPL.001463_1.0.ConsultarRating</det:node>
+                            <det:pipeline>request-N6774a399.19fa55a1.1.149be46a266.N8000</det:pipeline>
+                            <det:stage>ControlRqStg</det:stage>
+                            <det:path>request-pipeline</det:path>
+                        </det:location>
+                    </det:fault>
+                    <det:fechaHoraInicioTrx>2019-01-09T10:28:03.661-03:00</det:fechaHoraInicioTrx>
+                    <det:fechaHoraFinTrx>2019-01-09T10:28:03.687-03:00</det:fechaHoraFinTrx>
+                    <det:idTransaccionNegocio>pruebaTrazaOK3</det:idTransaccionNegocio>
+                    <det:errorCode>Técnico</det:errorCode>
+                    <det:errorList>
+                        <det:error>
+                            <det:level>Fatal</det:level>
+                            <det:code>OSB-382505</det:code>
+                            <det:description>OSB Validate action failed validation: string value '96929960-' does not match pattern for Rut in namespace http://osb.bancochile.cl/ent/bch/infra/mci/comun/v/3</det:description>
+                            <det:backEnd>OSB</det:backEnd>
+                        </det:error>
+                    </det:errorList>
+                </det:details>
+            </detail>
+        </ns0:Fault>
+    </soapenv:Body>
+</soapenv:Envelope>

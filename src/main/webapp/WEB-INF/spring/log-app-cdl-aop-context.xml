@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+
+    <bean id="logAspect" class="cl.bancochile.portal.log.aop.LoggingAspect" />
+
+    <bean id="logCodigoAppAspect" class="cl.bancochile.portal.log.aop.CodigoAppLogAspect">
+        <property name="codigoApp" value="#{idApp}" />
+    </bean>
+
+    <bean id="logError" class="cl.bancochile.portal.log.aop.LogControllerExceptionAspect" />
+
+    <aop:config>
+        <aop:aspect id="aspectLoggging" ref="logAspect" order="5">
+            <!-- @Around -->
+            <aop:pointcut id="pointCutAround" expression="bean(*Controller) || bean(*ServiceImpl*) || bean(*RepositoryImpl*)" />
+            <aop:around method="log" pointcut-ref="pointCutAround"  />
+        </aop:aspect>
+
+        <aop:aspect id="codigoAppLogging" ref="logCodigoAppAspect" order="4">
+            <aop:pointcut id="pointCutCodigoApp" expression="bean(*Controller)" />
+            <aop:around method="log" pointcut-ref="pointCutCodigoApp"  />
+        </aop:aspect>
+
+        <aop:aspect id="errorLogging" ref="logError" order="6">
+            <aop:pointcut id="pointCutError" expression="bean(*Controller)" />
+            <aop:around method="log" pointcut-ref="pointCutError"  />
+        </aop:aspect>
+
+    </aop:config>
+
+</beans>

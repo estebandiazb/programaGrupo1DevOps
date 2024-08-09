@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:context="http://www.springframework.org/schema/context"
+             xmlns:security="http://www.springframework.org/schema/security"
+             xmlns:mvc="http://www.springframework.org/schema/mvc"
+             xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
+
+
+    <!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+
+    <!-- Enables the Spring MVC @Controller programming model -->
+
+    <mvc:annotation-driven>
+        <mvc:argument-resolvers>
+            <beans:bean class="cl.bancochile.plataforma.shared.lib.cdnsession.model.spring.web.resolver.KeyArgumentResolver"/>
+            <beans:bean class="cl.bancochile.plataforma.shared.lib.cdnsession.model.spring.web.resolver.PermisosArgumentResolver"/>
+            <beans:bean class="cl.bancochile.plataforma.shared.lib.cdnsession.model.spring.web.resolver.InfoClienteArgumentResolver"/>
+            <beans:bean class="cl.bancochile.plataforma.shared.lib.cdnsession.model.spring.web.resolver.PerfilUserArgumentResolver"/>
+        </mvc:argument-resolvers>
+    </mvc:annotation-driven>
+
+    <!-- Registrar solamente los controladores -->
+    <context:component-scan base-package="cl.bancochile.plataformacomercial.controllimitestaller.controller"/>
+
+    <!-- No funcionó usar la anotación en la clase de configuración -->
+    <security:global-method-security pre-post-annotations="enabled"/>
+
+    <beans:import resource="classpath:spring/method-security-aop-context.xml"/>
+
+    <!-- Configuracion para archivos -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="209715200" />
+        <property name="maxInMemorySize" value="209715200" />
+        <property name="defaultEncoding" value="utf-8"/>
+    </bean>
+</beans:beans>
